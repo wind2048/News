@@ -47,15 +47,15 @@ public class MainActivity extends Activity {
 
         @Override
         public void onAnimationEnd(Animation animation) {
-            //判断是否进入过主页面
+            //判断是否进入过新闻中心
             boolean isStartMain= CacheUtils.getBoolean(MainActivity.this,START_MAIN);
             Intent intent;
             if(isStartMain){
-                //如果进入过主页面，直接进入主页面
+                //如果进入过新闻中心，直接进入新闻中心
                 intent=new Intent(MainActivity.this,CenterActivity.class);
 
             }else {
-                //如果没有进入过主页面，进入引导页面
+                //如果没有进入过新闻中心，进入引导页面
                 intent=new Intent(MainActivity.this,GuideActivity.class);
 
 

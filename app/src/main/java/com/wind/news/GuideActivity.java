@@ -75,10 +75,10 @@ public class GuideActivity extends Activity {
         btn_start_main.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //保存曾经进入过主页面
+                //保存曾经进入过新闻中心
                 CacheUtils.putBoolean(GuideActivity.this,MainActivity.START_MAIN,true);
 
-                //跳转到主页面
+                //跳转到新闻中心
                 Intent intent=new Intent(GuideActivity.this,CenterActivity.class);
                 startActivity(intent);
 

@@ -4,10 +4,11 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <androidx.viewpager.widget.ViewPager
+    <com.wind.news.view.NoScrollViewPager
         android:id="@+id/viewPager"
-        android:layout_width="450dp"
-        android:layout_height="450dp"></androidx.viewpager.widget.ViewPager>
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"></com.wind.news.view.NoScrollViewPager>
 
     <RadioGroup
         android:id="@+id/rg_main"
