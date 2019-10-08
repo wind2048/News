@@ -21,6 +21,9 @@ public class HomePager extends BasePager {
         textView.setTextSize(25);
         fl_context.addView(textView);
         textView.setText("主页内容");
+
     }
+
+
 
 }
