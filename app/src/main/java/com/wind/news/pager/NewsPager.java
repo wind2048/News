@@ -5,7 +5,10 @@ import android.graphics.Color;
 import android.view.Gravity;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
 import com.wind.news.base.BasePager;
+import com.wind.news.domain.NewsCenterPagerBean;
+import com.wind.news.domain.NewsCenterPagerBean2;
 import com.wind.news.utils.Constants;
 import com.wind.news.utils.LogUtil;
 
@@ -39,6 +42,7 @@ public class NewsPager extends BasePager {
             @Override
             public void onSuccess(String result) {
                 LogUtil.e("xutils3联网成功"+result);
+                processData(result);
 
             }
 
@@ -59,5 +63,38 @@ public class NewsPager extends BasePager {
             }
         });
     }
+
+    /**
+     * 解析json数据并显示
+     * @param json
+     */
+
+    private void processData(String json) {
+        NewsCenterPagerBean bean=parsedJson(json);
+        NewsCenterPagerBean2 bean2=parsedJson2(json);
+        String title=bean.getData().get(0).getChildren().get(1).getTitle();
+        LogUtil.e("gson解析成功"+title);
+
+        String title2=bean2.getData().get(0).getChildren().get(1).getTitle();
+        LogUtil.e("使用gson解析成功"+title2);
+    }
+
+
+    /**
+     * 解析json数据
+     * @param
+     * @return
+     */
+
+    private NewsCenterPagerBean parsedJson(String json) {
+        Gson gson=new Gson();
+        NewsCenterPagerBean bean=gson.fromJson(json,NewsCenterPagerBean.class);
+        return  bean;
+    }
+
+    private NewsCenterPagerBean2 parsedJson2(String json) {
+       return  new Gson().fromJson(json,NewsCenterPagerBean2.class);
+    }
+
 
 }
